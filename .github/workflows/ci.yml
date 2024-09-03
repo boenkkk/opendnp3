@@ -154,7 +154,7 @@ jobs:
           nuget-version: latest
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
       - name: Download NuGet stuff
-        uses: actions/download-artifact@v2-preview
+        uses: actions/download-artifact@v4.1.8
         with:
           name: temp-nuget-${{ github.sha }}
           path: opendnp3-nuget
@@ -176,12 +176,12 @@ jobs:
     if: "!startsWith(github.ref, 'refs/tags/')"
     steps:
       - name: Download pre-compiled OpenDNP3
-        uses: actions/download-artifact@v2-preview
+        uses: actions/download-artifact@v4.1.8
         with:
           name: opendnp3-linux-x64-gcc-Release-${{ github.sha }}
           path: opendnp3
       - name: Download pre-built OpenDNP3 Java bindings
-        uses: actions/download-artifact@v2-preview
+        uses: actions/download-artifact@v4.1.8
         with:
           name: opendnp3-java-bindings-${{ github.sha }}
           path: opendnp3-java
